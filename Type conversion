@@ -1,0 +1,73 @@
+// @ts-check
+
+/**
+ * Calculates the sum of the two input arrays.
+ *
+ * @param {number[]} array1
+ * @param {number[]} array2
+ * @returns {number} sum of the two arrays
+ */
+export function twoSum(array1, array2) {
+
+  let sun1 = 0;
+  let sun2 = 0;
+  
+    for (let i = 0; i < array1.length; i++) {
+
+      if(array1[i] || sun1)
+        sun1 *= 10
+      
+      sun1 += array1[i]    
+    }
+
+  for (let i = 0; i < array2.length; i++) {
+
+      if(array2[i] ||  sun1)
+        sun2 *= 10
+      
+      sun2 += array2[i]    
+    }
+
+  return  sun1 + sun2;
+
+  
+}
+
+/**
+ * Checks whether a number is a palindrome.
+ *
+ * @param {number} value
+ * @returns {boolean} whether the number is a palindrome or not
+ */
+export function luckyNumber(value) {
+
+  let num = String(value);
+  let j = num.length-1
+
+  for (let i = 0; i < num.length/2; i++) {
+    
+    if(num[i] != num[j])
+      return false;
+
+    j--;
+  }
+
+  return true;
+}
+
+/**
+ * Determines the error message that should be shown to the user
+ * for the given input value.
+ *
+ * @param {string|null|undefined} input
+ * @returns {string} error message
+ */
+export function errorMessage(input) {
+  if(!input)
+    return 'Required field'
+
+  else if(Number(input))
+    return '';
+
+  else return 'Must be a number besides 0';
+}
